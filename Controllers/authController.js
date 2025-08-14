@@ -21,7 +21,7 @@ export const logout = (req, res) => {
 export const register = async(req,res)=>{
     let {email,name,password}=req.body;
     let user =await userModel.findOne({email});
-    if(user) return res.send("user exixts")
+    if(user) return res.redirect("/")
     bcrypt.hash(password,10,async(err,hash)=>{
         let user = await userModel.create({
             email,name,password:hash
