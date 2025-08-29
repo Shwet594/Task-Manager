@@ -26,6 +26,6 @@ export const register = async(req,res)=>{
         let user = await userModel.create({
             email,name,password:hash
         })
-        res.send(user)
+        res.redirect("/");
      })
 } 
